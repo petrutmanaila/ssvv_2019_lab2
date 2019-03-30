@@ -40,7 +40,7 @@ public class StudentTests {
     }
 
     @Test
-    public void addStudentIdIdValid() {
+    public void addStudentIdValid() {
         int initialSize = studentRepo.size();
         studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
 
@@ -48,7 +48,7 @@ public class StudentTests {
     }
 
     @Test(expected = ValidationException.class)
-    public void addStudentIdIdNull() {
+    public void addStudentIdNull() {
         studentService.add(new Student(null, "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
     }
 

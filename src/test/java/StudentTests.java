@@ -53,11 +53,6 @@ public class StudentTests {
     }
 
     @Test(expected = ValidationException.class)
-    public void addStudentIdNull() {
-        studentService.add(new Student(null, "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
-    }
-
-    @Test(expected = ValidationException.class)
     public void addStudentIdEmpty() {
         studentService.add(new Student("", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
     }

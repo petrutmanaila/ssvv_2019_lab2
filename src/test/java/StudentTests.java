@@ -38,6 +38,14 @@ public class StudentTests {
         assert (studentRepo.size() == initialSize + 1);
     }
 
+    @Test
+    public void addStudentIdIdValid() {
+        int initialSize = studentRepo.size();
+        studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
+
+        assert (studentRepo.size() == initialSize + 1);
+    }
+
     @After
     public void clearTests() {
         Iterator<Student> studentIterator = studentService.all().iterator();

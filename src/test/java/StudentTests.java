@@ -62,6 +62,32 @@ public class StudentTests {
         studentService.add(new Student("id", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
     }
 
+    @Test
+    public void addStudentNameValid() {
+        int initialSize = studentRepo.size();
+        studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
+
+        assert (studentRepo.size() == initialSize + 1);
+    }
+
+    @Test(expected = ValidationException.class)
+    public void addStudentNameNotValid() {
+        studentService.add(new Student("11", "007", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
+    }
+
+    @Test
+    public void addStudentGroupValid() {
+        int initialSize = studentRepo.size();
+        studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
+
+        assert (studentRepo.size() == initialSize + 1);
+    }
+
+    @Test(expected = ValidationException.class)
+    public void addStudentGroupNegative() {
+        studentService.add(new Student("10", "Ionel", -1, "ionel2144@scs.ubbcluj.ro", "proff"));
+    }
+
     @After
     public void clearTests() {
         Iterator<Student> studentIterator = studentService.all().iterator();

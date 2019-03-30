@@ -30,11 +30,12 @@ public class StudentTests {
     }
 
     @Test
-    public void addStudentNull() {
+    public void addStudentDuplicate() {
         int initialSize = studentRepo.size();
-        studentService.add(null);
+        studentService.add(new Student("10", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
+        studentService.add(new Student("10", "Ionut", 931, "ionut2234@scs.ubbcluj.ro", "proff"));
 
-        assert (studentRepo.size() == initialSize);
+        assert (studentRepo.size() == initialSize + 1);
     }
 
     @After

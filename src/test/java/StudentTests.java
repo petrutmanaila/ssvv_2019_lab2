@@ -88,6 +88,26 @@ public class StudentTests {
         studentService.add(new Student("10", "Ionel", -1, "ionel2144@scs.ubbcluj.ro", "proff"));
     }
 
+    @Test(expected = ValidationException.class)
+    public void addStudentEmailInvalid() {
+        studentService.add(new Student("15", "Ionel", 934, "ionelEmailInvalid", "proff"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void addStudentEmailNull() {
+        studentService.add(new Student("15", "Ionel", 934, null, "proff"));
+    }
+
+    @Test(expected = ValidationException.class)
+    public void addStudentProfessorEmpty() {
+        studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", ""));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void addStudentProfessorNull() {
+        studentService.add(new Student("11", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", null));
+    }
+
     @After
     public void clearTests() {
         Iterator<Student> studentIterator = studentService.all().iterator();

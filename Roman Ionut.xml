@@ -8,3 +8,13 @@
         <feedback>bun</feedback>
     </Nota>
 </Note>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Note>
+    <Nota idNota="11">
+        <nr>1</nr>
+        <valoare>10.0</valoare>
+        <predat>4</predat>
+        <deadline>10</deadline>
+        <feedback>da</feedback>
+    </Nota>
+</Note>

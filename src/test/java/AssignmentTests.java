@@ -64,6 +64,16 @@ public class AssignmentTests {
         serviceTeme.add(new Teme(-1, "Tema", 3, 15));
     }
 
+    @Test(expected = ValidationException.class)
+    public void addDeadlineAndSaptPrimireInvalid() {
+        serviceTeme.add(new Teme(1, "Tema", -1, -1));
+    }
+
+    @Test(expected = ValidationException.class)
+    public void addAllInvalid() {
+        serviceTeme.add(new Teme(-1, "Tema", -1, -1));
+    }
+
     @After
     public void clearTests() {
         Iterator<Teme> temeIterator = serviceTeme.all().iterator();

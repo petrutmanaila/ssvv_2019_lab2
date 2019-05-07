@@ -23,8 +23,10 @@ public abstract class AbstractRepo <E extends hasID<ID>,ID> implements CrudRepo<
         String msg=validator.validate(el);
         if(msg.equals("")){
             E el2=findOne(el.getID());
-            repo.putIfAbsent(el.getID(),el);
-            return el2;
+            if (el2 != null) {
+                throw new ValidationException("Entity with ID " + el.getID() + " already exists");
+            }
+            return repo.putIfAbsent(el.getID(),el);
         }
         else throw new ValidationException(msg);
     }

@@ -30,13 +30,10 @@ public class StudentTests {
         assert (studentRepo.size() == initialSize + 1);
     }
 
-    @Test
+    @Test(expected = ValidationException.class)
     public void addStudentDuplicate() {
-        int initialSize = studentRepo.size();
         studentService.add(new Student("10", "Ionel", 934, "ionel2144@scs.ubbcluj.ro", "proff"));
         studentService.add(new Student("10", "Ionut", 931, "ionut2234@scs.ubbcluj.ro", "proff"));
-
-        assert (studentRepo.size() == initialSize + 1);
     }
 
     @Test

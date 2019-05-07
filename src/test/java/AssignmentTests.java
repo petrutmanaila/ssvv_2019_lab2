@@ -30,13 +30,10 @@ public class AssignmentTests {
         assert (temeRepo.size() == initialSize + 1);
     }
 
-    @Test
+    @Test(expected = ValidationException.class)
     public void addAssignmentDuplicate() {
-        int initialSize = temeRepo.size();
         serviceTeme.add(new Teme(1, "Tema", 3, 4));
         serviceTeme.add(new Teme(1, "Tema Lab 6", 6, 8));
-
-        assert (temeRepo.size() == initialSize + 1);
     }
 
     @Test(expected = ValidationException.class)

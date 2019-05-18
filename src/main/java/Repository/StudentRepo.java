@@ -70,7 +70,7 @@ public class StudentRepo extends AbstractRepo<Student,String> {
                 grupa.appendChild(gr);
                 e.appendChild(grupa);
                 Element mail=doc.createElement("mail");
-                Text email=doc.createTextNode(s.getMail());
+                Text email=doc.createTextNode(s.getEmail());
                 mail.appendChild(email);
                 e.appendChild(mail);
                 Element profesor=doc.createElement("profesor");

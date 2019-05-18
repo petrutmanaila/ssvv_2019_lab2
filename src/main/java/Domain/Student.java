@@ -6,12 +6,20 @@ public class Student implements hasID<String> {
     private int grupa ;
     private String email;
     private String profesor;
+    public Student(){}
     public Student (String id,String n, int gr, String e,String prof){
         this.idStudent=id;
         this.nume=n;
         this.grupa=gr;
         this.email=e;
         this.profesor=prof;
+    }
+
+    public String getIdStudent(){
+        return idStudent;
+    }
+    public void setIdStudent(String id){
+        this.idStudent=id;
     }
     public String getID(){
         return idStudent;
@@ -31,10 +39,10 @@ public class Student implements hasID<String> {
     public void setGrupa(int grupa){
         this.grupa=grupa;
     }
-    public String getMail(){
+    public String getEmail(){
         return email;
     }
-    public void setMail(String mail){
+    public void setEmail(String mail){
         this.email=mail;
     }
     public String getProfesor(){

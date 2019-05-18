@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   grupa: number;
   email: string;
   profesor: string;
+  result: string;
 
   constructor(private httpClient: HttpClient){
 
@@ -23,10 +24,11 @@ export class AppComponent implements OnInit {
 
 
   onAddStudent() {
+    this.result = "";
     let student = {idStudent: this.idStudent, nume: this.nume, grupa: this.grupa, email: this.email, profesor: this.profesor};
     this.httpClient.post<any>("http://localhost:8080/students", student).subscribe(
-      student => console.log(student),
-      error => console.log(error)
+      student => {this.result = "success"},
+      error => {this.result = "error"}
     );
   }
 }
